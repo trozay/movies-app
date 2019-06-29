@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import getLastestMovies, { getLatestMovies } from '../utils'
+import { getLatestMovies } from '../utils'
 
 export default class MovieBanner extends Component {
   state = {
