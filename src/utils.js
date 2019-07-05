@@ -1,11 +1,10 @@
 import axios from 'axios'
 import apiKey from './config'
-import { lookup } from 'dns';
 
 const baseUrl = 'https://api.themoviedb.org/3/movie';
 
 export const getLatestMovies = () => {
-  return axios.get(`${baseUrl}/upcoming?api_key=${apiKey}&language=en-US&page=1`)
+  return axios.get(`${baseUrl}/now_playing?api_key=${apiKey}&language=en-US&page=1`)
     .then(({ data: { results } }) => results)
 };
 
@@ -18,5 +17,11 @@ export const getGenres = () => {
       }, {})
     })
 };
+
+export const getPopularMovies = () => {
+  return axios.get(`${baseUrl}/upcoming?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data: { results } }) => results)
+};
+
 
 

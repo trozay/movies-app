@@ -3,7 +3,7 @@ import { getLatestMovies, getGenres } from '../utils'
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import '../css/movieBanner.css'
-        
+
 export default class MovieBanner extends Component {
   state = {
     movies: null,
@@ -23,7 +23,6 @@ export default class MovieBanner extends Component {
 
   render() {
     const { movies, genres } = this.state;
-    console.log(movies)
     return (
       <div>
         <Slider className='slider-wrapper'>
