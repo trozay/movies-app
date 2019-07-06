@@ -1,11 +1,17 @@
-/* .carousel {
-  width: 90vw;
-  margin: 3vw 5vw;
-} */
-
-.h-carousel-item {
+/* .h-carousel-item {
   margin: 0px;
-}
+} */
 .movie-carousel-subheader {
   text-align: center;
+}
+
+.slick-arrow {
+  display: none;
+  background-color: red;
+  /* background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px; */
+}
+
+.slick-prev {
+    -webkit-transform: rotate(180deg) translateY(calc(50% + 0px));
+            transform: rotate(180deg) translateY(calc(50% + 0px));
 }

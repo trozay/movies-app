@@ -5,17 +5,62 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../css/PopularMoviesCarousel.css'
 
-const MovieCarousel = props => {
+const MovieCarousel = ({ movies, carousel_name }) => {
   const settings = {
     dots: false,
     arrows: true,
-    slidesToShow: 9,
-    infinite: true,
-    slidesToScroll: 5,
+    slidesToShow: 7,
+    slidesToScroll: 6,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 6
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 4
+        }
+      },
+      {
+        breakpoint: 850,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
-  const { movies } = props;
   return (
     <Fragment>
+      <h3>{carousel_name}</h3>
       <Slider {...settings} >
         {movies &&
           movies.map(movie => (

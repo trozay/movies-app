@@ -2,26 +2,36 @@ footer {
   height: 20vh;
   width: 100%;
   background-color: #DFAC3B;
-  position: absolute;
-  bottom: -200%;
+  /* position: inherit; */
+  /* bottom: -200%; */
 }
 
-footer h5{
-  color: #2B3152;
+footer h3{
+  color: #071C23;
   position: absolute;
-  z-index:3;
-}
-
-footer h6 {
-  color: #2B3152; 
-  position: absolute;
-  z-index:1;
+  width: 40vw;
+  margin: 5vh 5vw;
 }
 
 footer img {
   position: absolute;
   right: 0;
-  margin: 3vh 3vw 3vh 3vw;
+  margin: 3vh 5vw 3vh 3vw;
   width: auto;
-  height: 15vh;
+  height: 13vh;
+}
+
+.social-links {
+  position: absolute;
+  color: #071C23; 
+  margin: 14vh 0vw 0vh 5vw;
+  display: flex;
+}
+
+.social-links button {
+  margin: 0px 1.5vw 0vh 0vw;
+  padding: 10px;
+  background-color: #071C23;
+  border-color: #071C23;
+  border-radius: 50px;
 }

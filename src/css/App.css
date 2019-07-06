@@ -3,7 +3,19 @@
   height: 0.6vh;
 }
 
-.carousel {
+.carousels {
   width: 90vw;
   margin: 3vw 5vw;
+}
+
+.container {
+  width: 90vw;
+  margin: 5vw;
+  /* background */
+}
+
+a {
+  text-decoration: none;
+  color: #DFAC3B;
+  font-weight: 500;
 }
