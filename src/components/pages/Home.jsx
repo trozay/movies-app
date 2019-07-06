@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MovieBanner from '../MovieBanner'
 import PopularMoviesCarousel from '../PopularMoviesCarousel';
+import TopRatedCarousel from '../TopRatedCarousel';
 
 export default class Home extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class Home extends Component {
       <div>
         <MovieBanner />
         <PopularMoviesCarousel />
+        <TopRatedCarousel />
       </div>
     )
   }

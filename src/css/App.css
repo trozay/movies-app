@@ -1,1 +1,9 @@
+.line-at-top {
+  background-color: #DFAC3B;
+  height: 0.6vh;
+}
 
+.carousel {
+  width: 90vw;
+  margin: 3vw 5vw;
+}

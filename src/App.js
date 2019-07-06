@@ -7,6 +7,7 @@ import './css/App.css';
 function App() {
   return (
     <div className='app'>
+      <div className='line-at-top' />
       <Header />
       <Router>
         <Home path='/' />

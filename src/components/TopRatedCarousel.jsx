@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { getPopularMovies } from '../utils'
+import { getTopRatedMovies } from '../utils'
 import MovieCarousel from './MovieCarousel';
 import '../css/App.css'
 
-export default class PopularMoviesCarousel extends Component {
+export default class TopRatedCarousel extends Component {
   state = {
     movies: null
   };
 
   componentDidMount() {
-    getPopularMovies()
+    getTopRatedMovies()
       .then(movies => this.setState({ movies }))
   }
 
@@ -17,7 +17,7 @@ export default class PopularMoviesCarousel extends Component {
     const { movies } = this.state;
     return (
       <div className='carousel'>
-        <h3>Popular Movies</h3>
+        <h3>Top Rated</h3>
         <MovieCarousel movies={movies} />
       </div>
     )

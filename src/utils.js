@@ -23,5 +23,11 @@ export const getPopularMovies = () => {
     .then(({ data: { results } }) => results)
 };
 
+export const getTopRatedMovies = () => {
+  return axios.get(`${baseUrl}/top_rated?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data: { results } }) => results)
+};
+
+
 
 

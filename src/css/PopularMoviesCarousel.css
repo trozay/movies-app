@@ -1,19 +1,11 @@
-.carousel {
+/* .carousel {
   width: 90vw;
   margin: 3vw 5vw;
-}
+} */
 
-.slick-slider {
-  /* margin: auto 5vw auto 5vw;
-  width:90vw;
-  background-color: green; */
-}
 .h-carousel-item {
   margin: 0px;
 }
-
-.movie-card {
-}
-
 .movie-carousel-subheader {
+  text-align: center;
 }
