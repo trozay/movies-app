@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './components/pages/Home'
-import Header from './components//Header'
+import MovieInfo from './components/MovieInfo.jsx'
+import Header from './components/Header'
 import Footer from './components/Footer'
 import { Router } from '@reach/router'
 import './css/App.css';
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Router>
         <Home path='/' />
+        <MovieInfo path='/movies/details/:movie_id' />
       </Router>
       <Footer />
     </div >

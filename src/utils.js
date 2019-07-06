@@ -33,5 +33,17 @@ export const getUpcomingMovies = () => {
     .then(({ data: { results } }) => results)
 };
 
+export const getMovieDetails = movie_id => {
+  return axios.get(`${baseUrl}/${movie_id}?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data }) => data)
+}
+
+export const getCastByMovieId = movie_id => {
+  return axios.get(`${baseUrl}/${movie_id}?api_key=${apiKey}&language=en-US&page=1&append_to_response=credits`)
+    .then(({ data: { credits: { cast } } }) => cast)
+};
+
+
+
 
 

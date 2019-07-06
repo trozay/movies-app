@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getLatestMovies, getGenres } from '../utils'
+import { Link } from '@reach/router'
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import '../css/movieBanner.css'
@@ -23,9 +24,20 @@ export default class MovieBanner extends Component {
 
   render() {
     const { movies, genres } = this.state;
+    const settings = {
+      dots: false,
+      arrows: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 2000,
+      autoplaySpeed: 6500,
+      // vertical: true,
+      // verticalSwiping: true
+    };
     return (
       <div>
-        <Slider className='slider-wrapper'>
+        <Slider className='slider-wrapper' {...settings}>
           {movies && movies.map((movie, index) =>
             <div
               key={movie.id}
@@ -34,15 +46,17 @@ export default class MovieBanner extends Component {
                 background: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center center`
               }}
             >
-              <div className="inner">
-                <p>Now Playing</p>
-                <h1>{movie.title}</h1>
-                <div className='genres-for-movie'>
-                  {genres && movie.genre_ids.map(genre_id => {
-                    return <h4>{genres[genre_id]}</h4>
-                  })}
+              <Link to={`/movies/details/${movie.id}`}>
+                <div className="inner">
+                  <p>Now Playing</p>
+                  <h1>{movie.title}</h1>
+                  <div className='genres-for-movie'>
+                    {genres && movie.genre_ids.map(genre_id => {
+                      return <h4>{genres[genre_id]}</h4>
+                    })}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           )}
         </Slider>
