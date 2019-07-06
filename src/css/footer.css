@@ -1,0 +1,27 @@
+footer {
+  height: 20vh;
+  width: 100%;
+  background-color: #DFAC3B;
+  position: absolute;
+  bottom: -200%;
+}
+
+footer h5{
+  color: #2B3152;
+  position: absolute;
+  z-index:3;
+}
+
+footer h6 {
+  color: #2B3152; 
+  position: absolute;
+  z-index:1;
+}
+
+footer img {
+  position: absolute;
+  right: 0;
+  margin: 3vh 3vw 3vh 3vw;
+  width: auto;
+  height: 15vh;
+}

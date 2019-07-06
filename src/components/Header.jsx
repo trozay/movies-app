@@ -2,7 +2,9 @@ import React from 'react'
 
 const Header = props => {
   return (
-    <h1>Moviesdb</h1>
+    <header>
+      <h1>Moviesdb</h1>
+    </header>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from './components//Header'
 import Home from './components/pages/Home'
+import Header from './components//Header'
+import Footer from './components/Footer'
 import { Router } from '@reach/router'
 import './css/App.css';
 
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Home path='/' />
       </Router>
+      <Footer />
     </div >
   );
 }

@@ -28,6 +28,10 @@ export const getTopRatedMovies = () => {
     .then(({ data: { results } }) => results)
 };
 
+export const getUpcomingMovies = () => {
+  return axios.get(`${baseUrl}/upcoming?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data: { results } }) => results)
+};
 
 
 
