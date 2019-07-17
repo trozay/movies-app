@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './components/pages/Home'
+import Movies from './components/pages/movies'
 import SingleMovieInfo from './components/SingleMovieInfo.jsx'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Router>
         <Home path='/' />
+        <Movies path='/movies' />
         <SingleMovieInfo path='/movies/:movie_id/details' />
       </Router>
       <Footer />

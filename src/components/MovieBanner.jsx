@@ -8,22 +8,18 @@ import '../css/movieBanner.css'
 export default class MovieBanner extends Component {
   state = {
     movies: null,
-    genres: null
   };
 
   componentDidMount() {
     getLatestMovies()
       .then(movies => {
         this.setState({ movies: movies.slice(0, 8) })
-        return getGenres()
       })
-      .then(genres => {
-        this.setState({ genres })
-      });
   }
 
   render() {
-    const { movies, genres } = this.state;
+    const { movies } = this.state;
+    const { genres } = this.props
     const settings = {
       dots: false,
       arrows: false,
@@ -52,7 +48,7 @@ export default class MovieBanner extends Component {
                   <h1>{movie.title}</h1>
                   <div className='genres-for-movie'>
                     {genres && movie.genre_ids.map(genre_id => {
-                      return <h4>{genres[genre_id]}</h4>
+                      return <h4 key={genre_id}>{genres[genre_id]}</h4>
                     })}
                   </div>
                 </div>

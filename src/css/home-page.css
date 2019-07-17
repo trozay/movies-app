@@ -1,21 +1,59 @@
 .home-page-categories {
-  margin: 1vw;
+  margin: 1vw 10vw;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns:auto auto auto auto auto auto;
+  grid-template-columns:auto auto auto auto auto;
   grid-gap: 3vh 0px;
 }
 
 .grid-item {
   text-align: center;
-  /* width: 14vw; */
+  margin: auto;
+  background-color: white;
 }
 
 .grid-item img {
   width: 15vw;
   height: auto;
+}
+
+.grid-item-title {
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 14vw;
+  color: black;
+  font-weight: 600;
+  margin-top: 0.5vh;
+} 
+
+.grid-genres {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-item-genre {
+  font-size: 0.6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0.6vh 0.2vw 0.6vh 0;
+  font-weight: 600;
+}
+
+.grid-item-rating {
+  text-align: left; 
+  font-weight: 600;
+  margin-bottom: 0.5vh;
+}
+
+.item-meta-info {
+  padding: 1vh 0 1vh 1vw;
 }
 
 .category-title {

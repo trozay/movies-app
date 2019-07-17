@@ -9,31 +9,30 @@ const Header = props => {
         <ul className='page-links'>
           <li>
             <Link to='/'>
-              MOVIESDB
-          </Link>
+              <h4 className='page-link'>MOVIESDB</h4>
+            </Link>
           </li>
           <hr className='vertical-line' />
           <li>
-            <Link to='/'>
-              HOME
-          </Link>
+            <Link to='/discover'>
+              <h4 className='page-link'>DISCOVER</h4>
+            </Link>
           </li>
           <li>
             <Link to='/movies'>
-              MOVIES
-          </Link>
+              <h4 className='page-link'>MOVIES</h4>
+            </Link>
           </li>
           <li>
             <Link to='/tv'>
-              TV SHOWS
-          </Link>
+              <h4 className='page-link'>TV SHOWS</h4>
+            </Link>
           </li>
           <li>
             <Link to='/people'>
-              PEOPLE
-          </Link>
+              <h4 className='page-link'>PEOPLE</h4>
+            </Link>
           </li>
-
         </ul>
       </nav>
     </header>
