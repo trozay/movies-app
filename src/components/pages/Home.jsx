@@ -1,40 +1,54 @@
 import React, { Component } from 'react'
 import MovieBanner from '../MovieBanner'
-import MovieCarousel from '../MovieCarousel';
-import { getPopularMovies, getTopRatedMovies, getUpcomingMovies } from '../../utils'
-import '../../css/App.css'
+import { getPopularMovies, getPopularTvSeries, getTopRatedMovies, getTopRatedTvSeries } from '../../utils'
+import '../../css/home-page.css'
+import HomeShowBest from './HomeShowbest';
 
 export default class Home extends Component {
   state = {
     popularMovies: null,
+    popularTvShows: null,
     topRatedMovies: null,
-    upcomingMovies: null
+    topRatedTvSeries: null
   };
 
   componentDidMount() {
     getPopularMovies()
       .then(popularMovies => {
         this.setState({ popularMovies })
+        return getPopularTvSeries()
+      })
+      .then(popularTvShows => {
+        this.setState({ popularTvShows })
         return getTopRatedMovies()
       })
       .then(topRatedMovies => {
         this.setState({ topRatedMovies })
-        return getUpcomingMovies()
+        return getTopRatedTvSeries()
       })
-      .then(upcomingMovies => {
-        this.setState({ upcomingMovies })
-      })
+      .then(topRatedTvSeries => {
+        this.setState({ topRatedTvSeries })
+      });
   };
 
   render() {
-    const { popularMovies, topRatedMovies, upcomingMovies } = this.state;
+    const { popularMovies, popularTvShows, topRatedMovies, topRatedTvSeries } = this.state;
     return (
       <div>
         <MovieBanner />
-        <div className='carousels'>
-          <MovieCarousel carousel_name='Popular Movies' movies={popularMovies} />
-          <MovieCarousel carousel_name='Top Rated' movies={topRatedMovies} />
-          <MovieCarousel carousel_name='Upcoming' movies={upcomingMovies} />
+        <div className='home-page-categories'>
+          <div className='popular-movies'>
+            <HomeShowBest title='Popular Movies' data={popularMovies} />
+          </div>
+          <div className='popular-tv'>
+            <HomeShowBest title='Popular Tv Series' data={popularTvShows} />
+          </div>
+          <div className='top-movies'>
+            <HomeShowBest title='Top Rated Movies' data={topRatedMovies} />
+          </div>
+          <div className='top-tv'>
+            <HomeShowBest title='Top Rated Tv Series' data={topRatedTvSeries} />
+          </div>
         </div>
       </div>
     )

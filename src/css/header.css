@@ -1,0 +1,34 @@
+header {
+  height: 11vh;
+}
+
+nav {
+  display: flex;
+}
+
+h1 {
+  margin: auto 0 auto 1vw;
+}
+
+h3 {
+  margin: auto 0vw;;
+}
+
+.vertical-line {
+  width: 0.01vw;
+  background-color: #DFAC3B;
+  margin: 1vh 3vw;
+  height: 8vh;
+}
+
+
+.page-links {
+  display: flex;
+  width: 50vw;
+}
+
+.page-links li {
+  font-size: 1.1em;
+  list-style-type: none;
+  margin: auto 0.5vw auto 0.5vw;
+}
