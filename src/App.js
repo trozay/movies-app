@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './components/pages/Home'
+import Home from './components/pages/home/Home'
 import Movies from './components/pages/movies'
-import SingleMovieInfo from './components/SingleMovieInfo.jsx'
+import SingleMovieInfo from './components/pages/single-movie/SingleMovieInfo'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { Router } from '@reach/router'

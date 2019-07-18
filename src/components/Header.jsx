@@ -13,19 +13,26 @@ const Header = props => {
             </Link>
           </li>
           <hr className='vertical-line' />
-          <li>
-            <Link to='/discover'>
-              <h4 className='page-link'>DISCOVER</h4>
-            </Link>
-          </li>
-          <li>
+          <li className='movie-tab'>
             <Link to='/movies'>
               <h4 className='page-link'>MOVIES</h4>
+              <ul className='movie-dropdown-menu'>
+                <Link to={`/movies`}><li className='dropdown-item'>Popular</li></Link>
+                <Link to={`/movies/top-rated`}><li className='dropdown-item'>Top Rated</li></Link>
+                <Link to={`/movies/upcoming`}><li className='dropdown-item'>Upcoming</li></Link>
+                <Link to={`/movies/now-playing`}><li className='dropdown-item'>Now Playing</li></Link>
+              </ul>
             </Link>
           </li>
-          <li>
+          <li className='tv-tab'>
             <Link to='/tv'>
               <h4 className='page-link'>TV SHOWS</h4>
+              <ul className='tv-dropdown-menu'>
+                <Link to={`/movies`}><li className='dropdown-item'>Popular</li></Link>
+                <Link to={`/movies/top-rated`}><li className='dropdown-item'>Top Rated</li></Link>
+                <Link to={`/movies/upcoming`}><li className='dropdown-item'>Upcoming</li></Link>
+                <Link to={`/movies/now-playing`}><li className='dropdown-item'>Now Playing</li></Link>
+              </ul>
             </Link>
           </li>
           <li>

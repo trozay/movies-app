@@ -9,14 +9,7 @@ export default class movies extends Component {
     const { infoToDisplay } = this.state;
     return (
       <div>
-        <div>
-          <ul>
-            <li>Popular</li>
-            <li>Top Rated</li>
-            <li>Upcoming</li>
-            <li>Now Playing</li>
-          </ul>
-        </div>
+
         {/* <BestMoviesOfGenre genre={infoToDisplay} /> */}
       </div>
     )

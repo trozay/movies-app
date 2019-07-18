@@ -33,8 +33,72 @@ h3 {
   color: #F5F5F5;
 }
 
+.page-link:hover {
+  color: lightgray;
+}
+
 .page-links li {
   font-size: 1.1em;
   list-style-type: none;
   margin: auto 0.5vw auto 0.5vw;
+}
+
+.movie-dropdown-menu {
+  z-index: 1;
+  position: absolute;
+  background-color: #DFAC3B;
+  color: white;
+  margin-top: 0.6vh;
+  font-size: 0.9em;
+  width: 35vw;
+  display: none;
+  border-radius: 2px;
+}
+
+.movie-tab {
+  display: inline-block;
+  position: relative;
+}
+
+.movie-tab:hover .movie-dropdown-menu{
+  display: flex;
+}
+
+.tv-dropdown-menu {
+  z-index: 1;
+  position: absolute;
+  background-color: #DFAC3B;
+  color: white;
+  margin-top: 0.6vh;
+  font-size: 0.9em;
+  width: 35vw;
+  display: none;
+  border-radius: 2px;
+}
+
+.tv-tab {
+  display: inline-block;
+  position: relative;
+}
+
+.tv-tab:hover .tv-dropdown-menu{
+  display: flex;
+}
+
+
+.dropdown-item {
+  padding: 0.5vh 1vw;
+  color: white;
+}
+
+.dropdown-item:hover {
+  color: lightgray;
+}
+
+.dropdown-item:first-child {
+  padding: 0.5vh 0;
+}
+
+.dropdown-item:last-child {
+  padding: 0.5vh 0;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import MovieBanner from '../MovieBanner'
-import { getPopularMovies, getPopularTvSeries, getGenres } from '../../utils'
-import '../../css/home-page.css'
+import MovieBanner from './MovieBanner'
+import { getPopularMovies, getPopularTvSeries, getGenres } from '../../../utils'
+import './home-page.css'
 import HomeShowBest from './HomeShowbest';
 
 export default class Home extends Component {

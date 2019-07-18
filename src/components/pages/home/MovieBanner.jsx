@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { getLatestMovies } from '../utils'
+import { getLatestMovies } from '../../../utils'
 import { Link } from '@reach/router'
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
-import '../css/movieBanner.css'
+import './movieBanner.css'
 
 export default class MovieBanner extends Component {
   state = {

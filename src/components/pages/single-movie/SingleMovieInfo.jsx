@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { getSingleMovieDetails, getCastByMovieId, getRelatedMovies } from '../utils';
+import { getSingleMovieDetails, getCastByMovieId, getRelatedMovies } from '../../../utils';
 import { Link } from '@reach/router';
 import moment from "moment";
-import '../css/singleMovieInfo.css';
+import './singleMovieInfo.css';
 
 export default class SingleMovieInfo extends Component {
   state = {
