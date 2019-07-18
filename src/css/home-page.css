@@ -8,15 +8,29 @@
   grid-gap: 3vh 0px;
 }
 
+.grid-container:last-child {
+  margin-right: 0;
+}
+
 .grid-item {
   text-align: center;
-  margin: auto;
+  margin: auto 1vw auto auto;
   background-color: white;
 }
 
 .grid-item img {
-  width: 15vw;
+  width: 16vw;
   height: auto;
+  box-shadow: 2px 2px 2.5px 0px rgba(0,0,0,0.5);
+}
+
+.item-meta-info {
+  width: 15vw;
+  text-align: left;
+}
+
+.item-meta-info h4{
+  margin: 0;
 }
 
 .grid-item-title {
@@ -27,7 +41,7 @@
   width: 14vw;
   color: black;
   font-weight: 600;
-  margin-top: 0.5vh;
+  margin: 0.4vh auto;
 } 
 
 .grid-genres {
@@ -44,16 +58,18 @@
   white-space: nowrap;
   margin: 0.6vh 0.2vw 0.6vh 0;
   font-weight: 600;
+  color: #DFAC3B;
 }
 
 .grid-item-rating {
   text-align: left; 
   font-weight: 600;
-  margin-bottom: 0.5vh;
+  margin: 0.4vh auto;
+  color: black;
 }
 
 .item-meta-info {
-  padding: 1vh 0 1vh 1vw;
+  padding: 1vh 0 1vh 0vw;
 }
 
 .category-title {

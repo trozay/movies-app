@@ -52,3 +52,16 @@
 .col2 ul, li {
   margin-right: 1vw;
 }
+
+.cast-section {
+  margin: 5vh 10vw;
+  color: black;
+}
+
+.cast-section h3{
+  margin-bottom: 5vh;
+}
+
+.grid-item {
+  background-color: transparent;
+}

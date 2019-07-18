@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getLatestMovies, getGenres } from '../utils'
+import { getLatestMovies } from '../utils'
 import { Link } from '@reach/router'
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';

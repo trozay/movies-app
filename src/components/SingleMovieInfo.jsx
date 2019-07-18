@@ -1,23 +1,29 @@
 import React, { Component } from 'react'
-import { getSingleMovieDetails } from '../utils';
+import { getSingleMovieDetails, getCastByMovieId } from '../utils';
 import moment from "moment";
 import '../css/singleMovieInfo.css';
 
 export default class SingleMovieInfo extends Component {
   state = {
     movieDetails: null,
+    cast: null
   };
 
   componentDidMount() {
     const { movie_id } = this.props
     getSingleMovieDetails(movie_id)
-      .then(movieDetails => this.setState({ movieDetails }))
+      .then(movieDetails => {
+        this.setState({ movieDetails })
+        return getCastByMovieId(movie_id);
+      })
+      .then(cast => this.setState({ cast }))
   }
 
   render() {
-    const { movieDetails } = this.state;
+    const { movieDetails, cast } = this.state;
+    console.log(movieDetails)
     const backgroundImg = movieDetails && `linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}) no-repeat center center / cover`;
-    // console.log(backgroundImg, 'LLL')
+    console.log(cast, 'LLL')
     return (
       <div>
         {movieDetails && <div className='main-page'>
@@ -56,6 +62,24 @@ export default class SingleMovieInfo extends Component {
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+          <div className='cast-section'>
+            <h3>Cast</h3>
+            <div className='grid-container'>
+              {cast && cast.map(person => {
+                return <div className='grid-item' key={person.cast_id}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w154/${person.profile_path}`}
+                    alt={person.name}
+                    className='item-img'
+                  />
+                  <div className='item-meta-info'>
+                    <h4 className='grid-item-real-name'>{person.name}</h4>
+                    <h4 className='grid-item-character'>{person.character}</h4>
+                  </div>
+                </div>
+              })}
             </div>
           </div>
         </div>}

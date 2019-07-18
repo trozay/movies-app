@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from '@reach/router'
+// import ''
 
 const HomeShowBest = props => {
   const { title, data, genres } = props;
   const titleKeyName = title === 'Popular Movies' ? 'title' : 'original_name';
-  console.log(genres)
   return (
     <div>
       <h2 className='category-title'>{title}</h2>

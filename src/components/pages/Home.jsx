@@ -28,7 +28,6 @@ export default class Home extends Component {
 
   render() {
     const { popularMovies, popularTvShows, genres } = this.state;
-    console.log(genres, '***')
     return (
       <div>
         <MovieBanner genres={genres} />

@@ -29,24 +29,14 @@ export const getPopularTvSeries = () => {
     .then(({ data: { results } }) => results)
 };
 
-export const getTopRatedMovies = () => {
-  return axios.get(`${baseMovieUrl}/top_rated?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
-};
-
-export const getTopRatedTvSeries = () => {
-  return axios.get(`${baseTvUrl}/top_rated?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
-};
-
 export const getSingleMovieDetails = movie_id => {
   return axios.get(`${baseMovieUrl}/${movie_id}?api_key=${apiKey}&language=en-US&page=1`)
     .then(({ data }) => data)
 }
 
 export const getCastByMovieId = movie_id => {
-  return axios.get(`${baseMovieUrl}/${movie_id}?api_key=${apiKey}&language=en-US&page=1&append_to_response=credits`)
-    .then(({ data: { credits: { cast } } }) => cast)
+  return axios.get(`${baseMovieUrl}/${movie_id}/credits?api_key=${apiKey}`)
+    .then(({ data: { cast } }) => cast.slice(0, 15))
 };
 
 
