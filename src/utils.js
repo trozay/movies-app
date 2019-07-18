@@ -34,6 +34,12 @@ export const getSingleMovieDetails = movie_id => {
     .then(({ data }) => data)
 }
 
+export const getRelatedMovies = movie_id => {
+  return axios.get(`${baseMovieUrl}/${movie_id}/similar?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data: { results } }) => results.slice(0, 12))
+}
+
+
 export const getCastByMovieId = movie_id => {
   return axios.get(`${baseMovieUrl}/${movie_id}/credits?api_key=${apiKey}`)
     .then(({ data: { cast } }) => cast.slice(0, 15))

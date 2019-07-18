@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { getSingleMovieDetails, getCastByMovieId } from '../utils';
+import { getSingleMovieDetails, getCastByMovieId, getRelatedMovies } from '../utils';
+import { Link } from '@reach/router';
 import moment from "moment";
 import '../css/singleMovieInfo.css';
 
 export default class SingleMovieInfo extends Component {
   state = {
     movieDetails: null,
-    cast: null
+    cast: null,
+    relatedMovies: null
   };
 
   componentDidMount() {
@@ -14,14 +16,18 @@ export default class SingleMovieInfo extends Component {
     getSingleMovieDetails(movie_id)
       .then(movieDetails => {
         this.setState({ movieDetails })
+        return getRelatedMovies(movie_id)
+      })
+      .then(relatedMovies => {
+        this.setState({ relatedMovies })
         return getCastByMovieId(movie_id);
       })
       .then(cast => this.setState({ cast }))
   }
 
   render() {
-    const { movieDetails, cast } = this.state;
-    console.log(movieDetails)
+    const { movieDetails, cast, relatedMovies } = this.state;
+    console.log(relatedMovies)
     const backgroundImg = movieDetails && `linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}) no-repeat center center / cover`;
     return (
       <div>
@@ -63,24 +69,42 @@ export default class SingleMovieInfo extends Component {
               </div>
             </div>
           </div>
-          <div className='cast-section'>
+          <section className='cast-section'>
             <h3>Cast</h3>
             <div className='grid-container-cast'>
               {cast && cast.map(person => {
-                return <div className='grid-item' key={person.cast_id}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
-                    alt={person.name}
-                    className='item-img'
-                  />
-                  <div className='item-meta-info-cast'>
-                    <h4 className='grid-item-real-name'>{person.name}</h4>
-                    <h4 className='grid-item-character'>as {person.character}</h4>
-                  </div>
+                return <div className='grid-item-cast' key={person.id}>
+                  <Link to={`/person/${person.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
+                      alt={person.name}
+                      className='item-img'
+                    />
+                    <div className='item-meta-info-cast'>
+                      <h4 className='grid-item-real-name'>{person.name}</h4>
+                      <h4 className='grid-item-character'>as {person.character}</h4>
+                    </div>
+                  </Link>
                 </div>
               })}
             </div>
-          </div>
+          </section>
+          <section className='related-section'>
+            <h3>People Also Liked</h3>
+            <div className='grid-container-related'>
+              {relatedMovies && relatedMovies.map(movie => {
+                return <div key={movie.id} className='grid-item-related'>
+                  <Link to={`/movies/${movie.id}/details`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`}
+                      alt={movie.title}
+                      className='item-img'
+                    />
+                  </Link>
+                </div>
+              })}
+            </div>
+          </section>
         </div>}
       </div>
     )

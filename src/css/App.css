@@ -19,3 +19,7 @@ a {
   color: #DFAC3B;
   font-weight: 500;
 }
+
+img {
+  border-radius: 2px;
+}

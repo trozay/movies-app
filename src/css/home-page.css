@@ -15,7 +15,10 @@
 .grid-item {
   text-align: center;
   margin: auto 1vw auto auto;
-  background-color: white;
+}
+
+.grid-item:hover  img{
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.8);
 }
 
 .grid-item img {
@@ -73,6 +76,6 @@
 }
 
 .category-title {
-  padding: 2.5vh 0 1vh 0.6666vw;
+  padding: 2.5vh 0 1vh 0;
   font-weight: 600;
 }
