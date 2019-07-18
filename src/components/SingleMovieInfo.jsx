@@ -23,7 +23,6 @@ export default class SingleMovieInfo extends Component {
     const { movieDetails, cast } = this.state;
     console.log(movieDetails)
     const backgroundImg = movieDetails && `linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}) no-repeat center center / cover`;
-    console.log(cast, 'LLL')
     return (
       <div>
         {movieDetails && <div className='main-page'>
@@ -66,17 +65,17 @@ export default class SingleMovieInfo extends Component {
           </div>
           <div className='cast-section'>
             <h3>Cast</h3>
-            <div className='grid-container'>
+            <div className='grid-container-cast'>
               {cast && cast.map(person => {
                 return <div className='grid-item' key={person.cast_id}>
                   <img
-                    src={`https://image.tmdb.org/t/p/w154/${person.profile_path}`}
+                    src={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
                     alt={person.name}
                     className='item-img'
                   />
-                  <div className='item-meta-info'>
+                  <div className='item-meta-info-cast'>
                     <h4 className='grid-item-real-name'>{person.name}</h4>
-                    <h4 className='grid-item-character'>{person.character}</h4>
+                    <h4 className='grid-item-character'>as {person.character}</h4>
                   </div>
                 </div>
               })}

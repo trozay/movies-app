@@ -62,6 +62,37 @@
   margin-bottom: 5vh;
 }
 
+.grid-container-cast {
+  display: grid;
+  grid-template-columns:auto auto auto auto auto auto;  
+  grid-gap: 3vh 0px;
+}
+
 .grid-item {
   background-color: transparent;
+  width: 13vw;
+  margin: 0;
+
+}
+
+.grid-item img {
+  width: 11vw;
+}
+
+.item-meta-info-cast {
+  margin-left: 1vw;
+}
+
+.item-meta-info-cast h4 {
+  margin: 0.5vh 0;
+  text-align: left;
+}
+
+.grid-item-real-name {
+  font-weight: 600;
+}
+
+.grid-item-character {
+  font-weight: 400;
+  color: #666666;
 }

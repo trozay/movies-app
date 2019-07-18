@@ -42,17 +42,17 @@ export default class MovieBanner extends Component {
                 background: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center center`
               }}
             >
-              <Link to={`/movies/details/${movie.id}`}>
-                <div className="inner">
-                  <p>Now Playing</p>
+              <div className="inner">
+                <p>Now Playing</p>
+                <Link to={`/movies/${movie.id}/details`}>
                   <h1>{movie.title}</h1>
-                  <div className='genres-for-movie'>
-                    {genres && movie.genre_ids.map(genre_id => {
-                      return <h4 key={genre_id}>{genres[genre_id]}</h4>
-                    })}
-                  </div>
+                </Link>
+                <div className='genres-for-movie'>
+                  {genres && movie.genre_ids.map(genre_id => {
+                    return <h4 key={genre_id}>{genres[genre_id]}</h4>
+                  })}
                 </div>
-              </Link>
+              </div>
             </div>
           )}
         </Slider>
