@@ -4,10 +4,6 @@ import apiKey from './config'
 const baseMovieUrl = 'https://api.themoviedb.org/3/movie';
 const baseTvUrl = 'https://api.themoviedb.org/3/tv';
 
-export const getLatestMovies = () => {
-  return axios.get(`${baseMovieUrl}/now_playing?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
-};
 
 export const getGenres = () => {
   return axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`)
@@ -19,10 +15,25 @@ export const getGenres = () => {
     })
 };
 
-export const getPopularMovies = () => {
-  return axios.get(`${baseMovieUrl}/popular?api_key=${apiKey}&language=en-US&page=1`)
+export const getLatestMovies = (page = 1) => {
+  return axios.get(`${baseMovieUrl}/now_playing?api_key=${apiKey}&language=en-US&page=${page}`)
     .then(({ data: { results } }) => results)
 };
+
+export const getPopularMovies = page => {
+  return axios.get(`${baseMovieUrl}/popular?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results } }) => results)
+};
+
+export const getTopRatedMovies = page => {
+  return axios.get(`${baseMovieUrl}/top_rated?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results } }) => results)
+};
+
+export const getMoviesPlayingNow = page => {
+  return axios.get(`${baseMovieUrl}/now_playing?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results } }) => results)
+}
 
 export const getPopularTvSeries = () => {
   return axios.get(`${baseTvUrl}/popular?api_key=${apiKey}&language=en-US&page=1`)

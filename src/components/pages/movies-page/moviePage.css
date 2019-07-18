@@ -1,0 +1,75 @@
+.movies-container {
+  margin: 0 10vw;
+  width: 80vw;
+}
+
+.movies-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 3vh 3vw;
+}
+
+.movie-grid-item {
+  display: flex;
+  box-shadow: 2px 2px 2.5px 0px rgba(0,0,0,0.25);
+  color: black;
+  width: 40vw;
+  height: 40vh;
+  /* background-color: #fff; */
+}
+
+.movie-grid-item img {
+  width: auto;
+  height: 100%;
+}
+
+.movie-meta-info {
+  width: 24vw;
+  margin: 2vh 0 0 1vw;
+}
+
+.top-section {
+  display: grid;
+  grid-template-columns: 4vw 20vw;
+  margin-bottom: 2.5vh;
+  height: 5vh;
+}
+
+/* 12.5 */
+.movie-overview {
+  color: #666666;
+  height: 18vh;
+  width: 23vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2.6vh;
+  max-height: 18vh;
+  font-weight: 400;
+}
+
+.grid-movie-rating {
+  margin: auto 0 auto 0;
+  font-weight: 600;
+}
+
+.grid-movie-title {
+  margin: 0;
+  font-weight: 600;
+  color: black;
+}
+
+.grid-movie-release {
+  margin: 0.6vh 0 0 0;
+  font-weight: 400;
+  color: #666666;
+}
+
+.more-info-box {
+  margin-top: 3.5vh;
+}
+
+.more-info-box p{
+  height: 5vh;
+  color: #666666;
+}
