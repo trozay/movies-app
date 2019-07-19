@@ -1,84 +1,84 @@
 import React, { Component } from 'react'
-import { getSingleMovieDetails, getCastByMovieId, getRelatedMovies } from '../../../utils';
+import { getSingleTvShowDetails, getCastByTvShowId, getRelatedTvShows } from '../../../utils';
 import { Link } from '@reach/router';
 import moment from "moment";
-import './singleMovieInfo.css';
+import './singleTvInfo.css';
 
-export default class SingleMovieInfo extends Component {
+export default class SingleTvShowInfo extends Component {
   state = {
-    movieDetails: null,
+    tvDetails: null,
     cast: null,
-    relatedMovies: null
+    relatedTvSeries: null
   };
 
   componentDidMount() {
-    const { movie_id } = this.props
-    getSingleMovieDetails(movie_id)
-      .then(movieDetails => {
-        this.setState({ movieDetails })
-        return getRelatedMovies(movie_id)
+    const { tvShow_id } = this.props
+    getSingleTvShowDetails(tvShow_id)
+      .then(tvDetails => {
+        this.setState({ tvDetails })
+        return getRelatedTvShows(tvShow_id)
       })
-      .then(relatedMovies => {
-        this.setState({ relatedMovies })
-        return getCastByMovieId(movie_id);
+      .then(relatedTvSeries => {
+        this.setState({ relatedTvSeries })
+        return getCastByTvShowId(tvShow_id);
       })
       .then(cast => this.setState({ cast }))
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { movie_id } = this.props
-    if (movie_id !== prevProps.movie_id) {
-      getSingleMovieDetails(movie_id)
-        .then(movieDetails => {
-          this.setState({ movieDetails })
-          return getRelatedMovies(movie_id)
+    const { tvShow_id } = this.props
+    if (tvShow_id !== prevProps.tvShow_id) {
+      getSingleTvShowDetails(tvShow_id)
+        .then(tvDetails => {
+          this.setState({ tvDetails })
+          return getRelatedTvShows(tvShow_id)
         })
-        .then(relatedMovies => {
-          this.setState({ relatedMovies })
-          return getCastByMovieId(movie_id);
+        .then(relatedTvSeries => {
+          this.setState({ relatedTvSeries })
+          return getCastByTvShowId(tvShow_id);
         })
         .then(cast => this.setState({ cast }))
     }
   }
 
   render() {
-    const { movieDetails, cast, relatedMovies } = this.state;
-    const backgroundImg = movieDetails && `linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}) no-repeat center center / cover`;
+    const { tvDetails, cast, relatedTvSeries } = this.state;
+    const backgroundImg = tvDetails && `linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original/${tvDetails.backdrop_path}) no-repeat center center / cover`;
     return (
       <div>
-        {movieDetails && <div className='main-page'>
+        {tvDetails && <div className='main-page'>
           <div className='main-section' style={{ background: backgroundImg }}>
             <div className='main-info'>
               <div className='col1'>
-                <h1>{movieDetails.title}</h1>
-                <p>{movieDetails.overview}</p>
+                <h1>{tvDetails.original_name}</h1>
+                <p>{tvDetails.overview}</p>
               </div>
               <div className='col2'>
                 <ul>
                   <li>
                     <h4>genre</h4>
-                    {movieDetails.genres &&
-                      movieDetails.genres
+                    {tvDetails.genres &&
+                      tvDetails.genres
                         .slice(0, 3)
                         .map(genre => <p key={genre.id}>{genre.name}</p>)}
                   </li>
                   <li>
                     <h4>movie length</h4>
-                    <p>{this.getDuration(movieDetails.runtime)}</p>
+                    <p>{this.getDuration(tvDetails.runtime)}</p>
                   </li>
                   <li>
                     <h4>country</h4>
                     <p>
-                      {movieDetails.production_countries
-                        ? movieDetails.production_countries.length === 0
+                      {tvDetails.production_countries
+                        ? tvDetails.production_countries.length === 0
                           ? "US"
-                          : movieDetails.production_countries[0].iso_3166_1
+                          : tvDetails.production_countries[0].iso_3166_1
                         : "US"}
                     </p>
                   </li>
                   <li>
                     <h4>release date</h4>
-                    <p>{moment(movieDetails.release_date).format("ll")}</p>
+                    <p>{moment(tvDetails.release_date).format("ll")}</p>
                   </li>
                 </ul>
               </div>
@@ -111,7 +111,7 @@ export default class SingleMovieInfo extends Component {
           <section className='related-section'>
             <h3>People Also Liked</h3>
             <div className='grid-container-related'>
-              {relatedMovies && relatedMovies.map(movie => {
+              {relatedTvSeries && relatedTvSeries.map(movie => {
                 return <div key={movie.id} className='grid-item-related'>
                   <Link to={`/movies/${movie.id}/details`}>
                     <img
@@ -134,4 +134,3 @@ export default class SingleMovieInfo extends Component {
     return `${hours}h ${minutes}min`;
   };
 }
-

@@ -96,10 +96,20 @@ export default class Movies extends Component {
         </div>
         {movies && <div className='page-tabs'>
           <button onClick={() => this.handlePageChange(1)} className='btn page-buttons'>{'<<'}</button>
-          {[0, 1, 2, 3, 4, 5].map(num => {
+          <button onClick={() => this.handlePageChange(page - 1)} className='btn page-buttons'>{'<'}</button>
+          {page < 3 && [0, 1, 2, 3, 4].map(num => {
             const highlightButton = num + page === page ? 'highlight-button' : '';
-            return <button onClick={() => this.handlePageChange(num + page)} className={`btn page-buttons ${highlightButton}`}>{num + page}</button>
+            return <button onClick={() => this.handlePageChange(num + page)} className={`btn page-buttons ${highlightButton}`} key={`page${page + num}`}>{num + page}</button>
           })}
+          {page === total_pages && [-4, -3, -2, -1, 0].map(num => {
+            const highlightButton = num + page === page ? 'highlight-button' : '';
+            return <button onClick={() => this.handlePageChange(num + page)} className={`btn page-buttons ${highlightButton}`} key={`page${page + num}`}>{num + page}</button>
+          })}
+          {page > 2 && page < total_pages && [-2, -1, 0, 1, 2].map(num => {
+            const highlightButton = num + page === page ? 'highlight-button' : '';
+            return <button onClick={() => this.handlePageChange(num + page)} className={`btn page-buttons ${highlightButton}`} key={`page${page + num}`}>{num + page}</button>
+          })}
+          <button onClick={() => this.handlePageChange(page + 1)} className='btn page-buttons'>{'>'}</button>
           <button onClick={() => this.handlePageChange(total_pages)} className='btn page-buttons'>{'>>'}</button>
         </div>}
       </div>

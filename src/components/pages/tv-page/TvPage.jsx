@@ -80,7 +80,7 @@ export default class TvPage extends Component {
                   <h4 className='grid-tv-rating'>{tvShow.vote_average}</h4>
                   <div className='title-release'>
                     <Link to={`/tv/${tvShow.id}/details`}>
-                      <h4 className='grid-tv-title'>{tvShow.title}</h4>
+                      <h4 className='grid-tv-title'>{tvShow.original_name}</h4>
                     </Link>
                     <h6 className='grid-tv-release'>{tvShow.release_date}</h6>
                   </div>

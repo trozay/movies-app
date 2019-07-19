@@ -7,6 +7,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import { Router } from '@reach/router'
 import './css/App.css';
+import SingleTvShowInfo from './components/pages/single-tv-show/SingleTvShowInfo';
+import ShowPeople from './components/pages/people/ShowPeople';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <TvPage path='/tv/upcoming' pageToShow='upcoming' />
         <TvPage path='/tv/now-playing' pageToShow='now-playing' />
         <SingleMovieInfo path='/movies/:movie_id/details' />
+        <SingleTvShowInfo path='/tv/:tvShow_id/details' />
+        <ShowPeople path='people' />
       </Router>
       <Footer />
     </div >
