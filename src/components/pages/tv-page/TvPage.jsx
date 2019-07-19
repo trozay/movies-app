@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "@reach/router";
 import { getPopularTvSeries, getTopRatedTvseries, getLatestTvSeries, getTvSeriesPlayingNow } from '../../../utils';
+import moment from 'moment'
 import './tvPage.css';
 
 export default class TvPage extends Component {
@@ -25,7 +26,7 @@ export default class TvPage extends Component {
         break;
       default:
         getPopularTvSeries(page)
-          .then(([popularMovies, total_pages]) => this.setState({ movies: popularMovies, total_pages }))
+          .then(([popularMovies, total_pages]) => this.setState({ tvSeries: popularMovies, total_pages }))
         break;
     }
   };
@@ -48,7 +49,7 @@ export default class TvPage extends Component {
           break;
         default:
           getPopularTvSeries(page)
-            .then(([popularMovies, total_pages]) => this.setState({ movies: popularMovies, total_pages }))
+            .then(([popularMovies, total_pages]) => this.setState({ tvSeries: popularMovies, total_pages }))
           break;
       }
     }
@@ -82,7 +83,7 @@ export default class TvPage extends Component {
                     <Link to={`/tv/${tvShow.id}/details`}>
                       <h4 className='grid-tv-title'>{tvShow.original_name}</h4>
                     </Link>
-                    <h6 className='grid-tv-release'>{tvShow.release_date}</h6>
+                    <h6 className='grid-tv-release'>{moment(tvSeries.first_air_date).format("ll")}</h6>
                   </div>
                 </div>
                 <p className='tv-overview'>{tvShow.overview}</p>
