@@ -52,7 +52,7 @@ export const getLatestTvSeries = page => {
 };
 
 export const getTvSeriesPlayingNow = page => {
-  return axios.get(`${baseTvUrl}/latest?api_key=${apiKey}&language=en-US&page=${page}`)
+  return axios.get(`${baseTvUrl}/airing_today?api_key=${apiKey}&language=en-US&page=${page}`)
     .then(({ data: { results, total_pages } }) => [results, total_pages])
 };
 
