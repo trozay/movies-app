@@ -4,7 +4,7 @@ import '../css/footer.css'
 const Footer = (params) => {
   return (
     <footer>
-      <div className='container'>
+      <div className='footer'>
         <div className='footer-text'>
           <h3>
             The Moviesdb is a place to search for your favorite movies and tv

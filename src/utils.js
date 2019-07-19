@@ -3,11 +3,8 @@ import apiKey from './config'
 
 const baseMovieUrl = 'https://api.themoviedb.org/3/movie';
 const baseTvUrl = 'https://api.themoviedb.org/3/tv';
+const basePersonUrl = 'https://api.themoviedb.org/3/person';
 
-export const getLatestMovies = () => {
-  return axios.get(`${baseMovieUrl}/now_playing?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
-};
 
 export const getGenres = () => {
   return axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`)
@@ -19,24 +16,44 @@ export const getGenres = () => {
     })
 };
 
-export const getPopularMovies = () => {
-  return axios.get(`${baseMovieUrl}/popular?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
+export const getLatestMovies = (page = 1) => {
+  return axios.get(`${baseMovieUrl}/upcoming?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
 };
 
-export const getPopularTvSeries = () => {
-  return axios.get(`${baseTvUrl}/popular?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
+export const getPopularMovies = page => {
+  return axios.get(`${baseMovieUrl}/popular?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
 };
 
-export const getTopRatedMovies = () => {
-  return axios.get(`${baseMovieUrl}/top_rated?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
+export const getTopRatedMovies = page => {
+  return axios.get(`${baseMovieUrl}/top_rated?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
 };
 
-export const getTopRatedTvSeries = () => {
-  return axios.get(`${baseTvUrl}/top_rated?api_key=${apiKey}&language=en-US&page=1`)
-    .then(({ data: { results } }) => results)
+export const getMoviesPlayingNow = page => {
+  return axios.get(`${baseMovieUrl}/now_playing?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
+}
+
+export const getPopularTvSeries = page => {
+  return axios.get(`${baseTvUrl}/popular?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
+};
+
+export const getTopRatedTvseries = page => {
+  return axios.get(`${baseTvUrl}/top_rated?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
+};
+
+export const getLatestTvSeries = page => {
+  return axios.get(`${baseTvUrl}/airing_today?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
+};
+
+export const getTvSeriesPlayingNow = page => {
+  return axios.get(`${baseTvUrl}/latest?api_key=${apiKey}&language=en-US&page=${page}`)
+    .then(({ data: { results, total_pages } }) => [results, total_pages])
 };
 
 export const getSingleMovieDetails = movie_id => {
@@ -44,10 +61,39 @@ export const getSingleMovieDetails = movie_id => {
     .then(({ data }) => data)
 }
 
-export const getCastByMovieId = movie_id => {
-  return axios.get(`${baseMovieUrl}/${movie_id}?api_key=${apiKey}&language=en-US&page=1&append_to_response=credits`)
-    .then(({ data: { credits: { cast } } }) => cast)
+
+export const getSingleTvShowDetails = tvShow_id => {
+  return axios.get(`${baseTvUrl}/${tvShow_id}?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data }) => data)
+}
+
+export const getRelatedMovies = movie_id => {
+  return axios.get(`${baseMovieUrl}/${movie_id}/similar?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data: { results } }) => results.slice(0, 12))
+}
+
+export const getRelatedTvShows = tvShow_id => {
+  return axios.get(`${baseTvUrl}/${tvShow_id}/similar?api_key=${apiKey}&language=en-US&page=1`)
+    .then(({ data: { results } }) => results.slice(0, 12))
+}
+
+
+export const getCastByTvShowId = tvShow_id => {
+  return axios.get(`${baseTvUrl}/${tvShow_id}/credits?api_key=${apiKey}`)
+    .then(({ data: { cast } }) => cast.slice(0, 15))
 };
+
+export const getCastByMovieId = movie_id => {
+  return axios.get(`${baseMovieUrl}/${movie_id}/credits?api_key=${apiKey}`)
+    .then(({ data: { cast } }) => cast.slice(0, 15))
+};
+
+export const getPopularPeople = (page = 1) => {
+  return axios.get(`${basePersonUrl}/popular?api_key=${apiKey}&language=en-US&page=${page}
+  `)
+    .then(({ data: { results, total_pages } }) => [results.slice(0, 18), total_pages])
+};
+
 
 
 

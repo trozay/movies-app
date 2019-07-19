@@ -1,9 +1,11 @@
 header {
   height: 11vh;
+  background-color: #DFAC3B;
 }
 
 nav {
   display: flex;
+  margin: auto 10vw;
 }
 
 h1 {
@@ -14,21 +16,84 @@ h3 {
   margin: auto 0vw;;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .vertical-line {
-  width: 0.01vw;
-  background-color: #DFAC3B;
+  width: 0.04vw;
+  background-color: #f5f5f5;
   margin: 1vh 3vw;
   height: 8vh;
 }
-
 
 .page-links {
   display: flex;
   width: 50vw;
 }
 
-.page-links li {
-  font-size: 1.1em;
-  list-style-type: none;
-  margin: auto 0.5vw auto 0.5vw;
+.page-link {
+  background-color: #DFAC3B;
+  border: none;
+  margin: auto 1vw;
+  padding: 0;
+}
+
+.page-link h4{
+  color: #f5f5f5;
+  border: 0px;
+  font-size: 0.9em;
+}
+
+
+.page-link:hover{
+  background-color: #DFAC3B;
+}
+
+.movie-dropdown-menu {
+  z-index: 1;
+  position: absolute;
+  background-color: #DFAC3B;
+  font-size: 0.9em;
+  width: 20vw;
+  display: none;
+  border-radius: 2px;
+}
+
+.movie-tab {
+  display: inline-block;
+  position: relative;
+}
+
+.movie-tab:hover .movie-dropdown-menu{
+  display: block;
+}
+
+.tv-dropdown-menu {
+  z-index: 1;
+  position: absolute;
+  background-color: #DFAC3B;
+  margin-top: 0.6vh;
+  font-size: 0.9em;
+  width: 20vw;
+  display: none;
+  border-radius: 2px;
+}
+
+.tv-tab {
+  display: inline-block;
+  position: relative;
+}
+
+.tv-tab:hover .tv-dropdown-menu{
+  display: block;
+}
+
+
+.dropdown-item {
+  color: #f5f5f5;
+}
+
+.dropdown-item:hover {
+  color: #DFAC3B;
 }

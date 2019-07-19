@@ -1,29 +1,25 @@
 import React, { Component } from 'react'
-import { getLatestMovies, getGenres } from '../utils'
+import { getLatestMovies } from '../../../utils'
 import { Link } from '@reach/router'
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
-import '../css/movieBanner.css'
+import './movieBanner.css'
 
 export default class MovieBanner extends Component {
   state = {
     movies: null,
-    genres: null
   };
 
   componentDidMount() {
     getLatestMovies()
-      .then(movies => {
+      .then(([movies]) => {
         this.setState({ movies: movies.slice(0, 8) })
-        return getGenres()
       })
-      .then(genres => {
-        this.setState({ genres })
-      });
   }
 
   render() {
-    const { movies, genres } = this.state;
+    const { movies } = this.state;
+    const { genres } = this.props;
     const settings = {
       dots: false,
       arrows: false,
@@ -46,17 +42,17 @@ export default class MovieBanner extends Component {
                 background: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center center`
               }}
             >
-              <Link to={`/movies/details/${movie.id}`}>
-                <div className="inner">
-                  <p>Now Playing</p>
+              <div className="inner">
+                <p>Now Playing</p>
+                <Link to={`/movies/${movie.id}/details`}>
                   <h1>{movie.title}</h1>
-                  <div className='genres-for-movie'>
-                    {genres && movie.genre_ids.map(genre_id => {
-                      return <h4>{genres[genre_id]}</h4>
-                    })}
-                  </div>
+                </Link>
+                <div className='genres-for-movie'>
+                  {genres && movie.genre_ids.map(genre_id => {
+                    return <h4 key={genre_id}>{genres[genre_id]}</h4>
+                  })}
                 </div>
-              </Link>
+              </div>
             </div>
           )}
         </Slider>

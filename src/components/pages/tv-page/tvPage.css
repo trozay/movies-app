@@ -1,0 +1,98 @@
+.tv-series-container {
+  margin: 5vh 10vw;
+  width: 80vw;
+}
+
+.tv-series-container h2 {
+  margin-bottom: 3vh;
+}
+
+.tv-series-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 38vw 38vw;
+  grid-gap: 3vh 3vw;
+}
+
+.tv-grid-item {
+  display: flex;
+  box-shadow: 2px 2px 2.5px 0px rgba(0,0,0,0.25);
+  color: black;
+  width: 40vw;
+  height: 40vh;
+  /* background-color: #fff; */
+}
+
+.tv-grid-item img {
+  width: auto;
+  height: 40vh;
+}
+
+.tv-meta-info {
+  width: 24vw;
+  margin: 2vh 0 0 1vw;
+}
+
+.top-section {
+  display: grid;
+  grid-template-columns: 4vw 18vw;
+  margin-bottom: 3vh;
+  height: 7vh;
+  /* background-color: red; */
+}
+
+/* 12.5 */
+.tv-overview {
+  color: #666666;
+  height: 18vh;
+  width: 20vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2.6vh;
+  max-height: 18vh;
+  font-weight: 400;
+}
+
+.grid-tv-rating {
+  margin: auto 0 auto 0;
+  font-weight: 600;
+}
+
+.grid-tv-title {
+  margin: 0;
+  font-weight: 700;
+  color: black;
+  font-size: 0.9rem;
+}
+
+.grid-tv-release {
+  margin: 0.6vh 0 0 0;
+  font-weight: 400;
+  color: #666666;
+}
+
+.more-info-box p{
+  height: 5vh;
+  color: #666666;
+  position: absolute;
+}
+
+.page-tabs {
+  display: flex;
+  margin: 8vh 25vw 8vh 25vw;
+  /* width: 30vw; */
+}
+
+.page-buttons {
+  padding: 5px;
+  background-color: #DFAC3B;
+  color: #f5f5f5;
+  padding: 0.7em;
+  margin: auto 0.5vw
+} 
+
+.highlight-button {
+  background-color: #f5f5f5;
+  color: #DFAC3B;
+  border: #DFAC3B 1px solid;
+}
