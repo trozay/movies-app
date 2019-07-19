@@ -88,13 +88,15 @@
 }
 
 .item-meta-info-cast h4 {
-  margin: 0.5vh 0;
+  /* margin: 0.5vh 0; */
+  width: 11vw;
   text-align: left;
 }
 
 .grid-item-real-name {
   font-weight: 600;
   color: black;
+  width: 
 }
 
 .grid-item-character {

@@ -3,10 +3,11 @@ import { getPopularMovies, getTopRatedMovies, getLatestMovies, getMoviesPlayingN
 import { Link } from '@reach/router'
 import './moviePage.css'
 
-export default class movies extends Component {
+export default class Movies extends Component {
   state = {
     page: 1,
-    movies: null
+    movies: null,
+    total_pages: null
   };
 
   componentDidMount() {
@@ -24,40 +25,45 @@ export default class movies extends Component {
         break;
       default:
         getPopularMovies(page)
-          .then(popularMovies => this.setState({ movies: popularMovies }))
+          .then(([popularMovies, total_pages]) => this.setState({ movies: popularMovies, total_pages }))
         break;
     }
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { page } = this.props
+    const { page } = this.state
+    const prevPage = prevState.page
     const { pageToShow } = this.props
     const prevPageToShow = prevProps.pageToShow
-    if (prevPageToShow !== pageToShow) {
+    if (prevPageToShow !== pageToShow || page !== prevPage) {
       switch (pageToShow) {
         case 'top-rated':
-          getTopRatedMovies(page).then(topRatedMovies => this.setState({ movies: topRatedMovies }));
+          getTopRatedMovies(page).then(([topRatedMovies, total_pages]) => this.setState({ movies: topRatedMovies, total_pages }));
           break;
         case 'upcoming':
-          getLatestMovies(page).then(upcomingMovies => this.setState({ movies: upcomingMovies }));
+          getLatestMovies(page).then(([upcomingMovies, total_pages]) => this.setState({ movies: upcomingMovies, total_pages }));
           break;
         case 'now-playing':
-          getMoviesPlayingNow(page).then(moviesPlayingNow => this.setState({ movies: moviesPlayingNow }));
+          getMoviesPlayingNow(page).then(([moviesPlayingNow, total_pages]) => this.setState({ movies: moviesPlayingNow, total_pages }));
           break;
         default:
           getPopularMovies(page)
-            .then(popularMovies => this.setState({ movies: popularMovies }))
+            .then(([popularMovies, total_pages]) => this.setState({ movies: popularMovies, total_pages }))
           break;
       }
     }
   }
 
   render() {
-    const { movies } = this.state;
-    console.log(movies)
+    const { movies, total_pages, page } = this.state;
+    let { pageToShow } = this.props
+    pageToShow = pageToShow
+      .split('-')
+      .map(word => word[0].toUpperCase() + word.slice(1))
+      .join(' ');
     return (
       <div className='movies-container'>
-        <h2>Popular Movies</h2>
+        <h2>{pageToShow}</h2>
         <div className='movies-grid'>
           {movies && movies.map(movie => {
             return <div className='movie-grid-item' key={movie.id}>
@@ -80,7 +86,6 @@ export default class movies extends Component {
                 </div>
                 <p className='movie-overview'>{movie.overview}</p>
                 <div className='more-info-box'>
-                  <hr />
                   <Link to={`/movies/${movie.id}/details`}>
                     <p>More Info</p>
                   </Link>
@@ -89,7 +94,19 @@ export default class movies extends Component {
             </div>
           })}
         </div>
+        {movies && <div className='page-tabs'>
+          <button onClick={() => this.handlePageChange(1)} className='btn page-buttons'>{'<<'}</button>
+          {[0, 1, 2, 3, 4, 5].map(num => {
+            const highlightButton = num + page === page ? 'highlight-button' : '';
+            return <button onClick={() => this.handlePageChange(num + page)} className={`btn page-buttons ${highlightButton}`}>{num + page}</button>
+          })}
+          <button onClick={() => this.handlePageChange(total_pages)} className='btn page-buttons'>{'>>'}</button>
+        </div>}
       </div>
     )
   }
-}
+
+  handlePageChange = pageNumber => {
+    this.setState({ page: pageNumber });
+  };
+};

@@ -13,11 +13,11 @@ export default class Home extends Component {
 
   componentDidMount() {
     getPopularMovies()
-      .then(popularMovies => {
+      .then(([popularMovies]) => {
         this.setState({ popularMovies })
         return getPopularTvSeries()
       })
-      .then(popularTvShows => {
+      .then(([popularTvShows]) => {
         this.setState({ popularTvShows })
         return getGenres()
       })

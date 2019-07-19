@@ -25,9 +25,24 @@ export default class SingleMovieInfo extends Component {
       .then(cast => this.setState({ cast }))
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { movie_id } = this.props
+    if (movie_id !== prevProps.movie_id) {
+      getSingleMovieDetails(movie_id)
+        .then(movieDetails => {
+          this.setState({ movieDetails })
+          return getRelatedMovies(movie_id)
+        })
+        .then(relatedMovies => {
+          this.setState({ relatedMovies })
+          return getCastByMovieId(movie_id);
+        })
+        .then(cast => this.setState({ cast }))
+    }
+  }
+
   render() {
     const { movieDetails, cast, relatedMovies } = this.state;
-    console.log(relatedMovies)
     const backgroundImg = movieDetails && `linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,.5)), url(https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}) no-repeat center center / cover`;
     return (
       <div>
@@ -75,11 +90,15 @@ export default class SingleMovieInfo extends Component {
               {cast && cast.map(person => {
                 return <div className='grid-item-cast' key={person.id}>
                   <Link to={`/person/${person.id}`}>
-                    <img
+                    {person.profile_path ? <img
                       src={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
                       alt={person.name}
                       className='item-img'
-                    />
+                    /> : <img
+                        src={'https://d2g50grrs5gsgl.cloudfront.net/images/placeholders/default-user-pic-display-fp-25783b166928d6761389e6d34279290e.gif'}
+                        alt={person.name}
+                        className='default-item-img'
+                      />}
                     <div className='item-meta-info-cast'>
                       <h4 className='grid-item-real-name'>{person.name}</h4>
                       <h4 className='grid-item-character'>as {person.character}</h4>

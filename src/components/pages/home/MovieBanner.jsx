@@ -12,14 +12,14 @@ export default class MovieBanner extends Component {
 
   componentDidMount() {
     getLatestMovies()
-      .then(movies => {
+      .then(([movies]) => {
         this.setState({ movies: movies.slice(0, 8) })
       })
   }
 
   render() {
     const { movies } = this.state;
-    const { genres } = this.props
+    const { genres } = this.props;
     const settings = {
       dots: false,
       arrows: false,

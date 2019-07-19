@@ -1,20 +1,20 @@
-.movies-container {
+.tv-series-container {
   margin: 5vh 10vw;
   width: 80vw;
 }
 
-.movies-container h2 {
+.tv-series-container h2 {
   margin-bottom: 3vh;
 }
 
-.movies-grid {
+.tv-series-grid {
   width: 100%;
   display: grid;
   grid-template-columns: 38vw 38vw;
   grid-gap: 3vh 3vw;
 }
 
-.movie-grid-item {
+.tv-grid-item {
   display: flex;
   box-shadow: 2px 2px 2.5px 0px rgba(0,0,0,0.25);
   color: black;
@@ -23,12 +23,12 @@
   /* background-color: #fff; */
 }
 
-.movie-grid-item img {
+.tv-grid-item img {
   width: auto;
   height: 40vh;
 }
 
-.movie-meta-info {
+.tv-meta-info {
   width: 24vw;
   margin: 2vh 0 0 1vw;
 }
@@ -38,10 +38,11 @@
   grid-template-columns: 4vw 18vw;
   margin-bottom: 3vh;
   height: 7vh;
+  /* background-color: red; */
 }
 
 /* 12.5 */
-.movie-overview {
+.tv-overview {
   color: #666666;
   height: 18vh;
   width: 20vw;
@@ -52,26 +53,22 @@
   font-weight: 400;
 }
 
-.grid-movie-rating {
+.grid-tv-rating {
   margin: auto 0 auto 0;
   font-weight: 600;
 }
 
-.grid-movie-title {
+.grid-tv-title {
   margin: 0;
   font-weight: 700;
   color: black;
   font-size: 0.9rem;
 }
 
-.grid-movie-release {
+.grid-tv-release {
   margin: 0.6vh 0 0 0;
   font-weight: 400;
   color: #666666;
-}
-
-.more-info-box{
-  /* margin-top: 3.5vh; */
 }
 
 .more-info-box p{

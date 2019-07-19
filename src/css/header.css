@@ -16,13 +16,16 @@ h3 {
   margin: auto 0vw;;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .vertical-line {
-  width: 0.01vw;
-  background-color: #fff;
+  width: 0.04vw;
+  background-color: #f5f5f5;
   margin: 1vh 3vw;
   height: 8vh;
 }
-
 
 .page-links {
   display: flex;
@@ -30,27 +33,29 @@ h3 {
 }
 
 .page-link {
-  color: #F5F5F5;
+  background-color: #DFAC3B;
+  border: none;
+  margin: auto 1vw;
+  padding: 0;
 }
 
-.page-link:hover {
-  color: lightgray;
+.page-link h4{
+  color: #f5f5f5;
+  border: 0px;
+  font-size: 0.9em;
 }
 
-.page-links li {
-  font-size: 1.1em;
-  list-style-type: none;
-  margin: auto 0.5vw auto 0.5vw;
+
+.page-link:hover{
+  background-color: #DFAC3B;
 }
 
 .movie-dropdown-menu {
   z-index: 1;
   position: absolute;
   background-color: #DFAC3B;
-  color: white;
-  margin-top: 0.6vh;
   font-size: 0.9em;
-  width: 35vw;
+  width: 20vw;
   display: none;
   border-radius: 2px;
 }
@@ -61,17 +66,16 @@ h3 {
 }
 
 .movie-tab:hover .movie-dropdown-menu{
-  display: flex;
+  display: block;
 }
 
 .tv-dropdown-menu {
   z-index: 1;
   position: absolute;
   background-color: #DFAC3B;
-  color: white;
   margin-top: 0.6vh;
   font-size: 0.9em;
-  width: 35vw;
+  width: 20vw;
   display: none;
   border-radius: 2px;
 }
@@ -82,23 +86,14 @@ h3 {
 }
 
 .tv-tab:hover .tv-dropdown-menu{
-  display: flex;
+  display: block;
 }
 
 
 .dropdown-item {
-  padding: 0.5vh 1vw;
-  color: white;
+  color: #f5f5f5;
 }
 
 .dropdown-item:hover {
-  color: lightgray;
-}
-
-.dropdown-item:first-child {
-  padding: 0.5vh 0;
-}
-
-.dropdown-item:last-child {
-  padding: 0.5vh 0;
+  color: #DFAC3B;
 }
