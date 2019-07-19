@@ -3,34 +3,58 @@ footer {
   width: 100%;
   background-color: #DFAC3B;
   position: absolute;
-  /* bottom:0;
-  left: 0;
-  right: 0; */
 }
 
 
 .footer {
-  margin: 0;
+  margin: 0 10vw;
   padding: 0;
+  display: flex;
+}
+
+.footer-text {
+  width: 30vw;
+  height: 12vh;
+}
+
+.left-section {
+  width: 40vw;
+  height: 16vh;
+  margin: 2vh 0 0 0;
 }
 
 .logo {
-  position: absolute;
-  right: 0;
+  width: 40vw;
+  margin: 1.5vh auto;
 }
 
-.logo img{
-  
-  height: 5vh;
-  width: 5vw;
+.logo img {
+  width: 40vh;
+  height: auto;
+  margin-left: 10vw;
 }
 
+.social-links {
+  padding-bottom: 1vh;
+}
 
-/* footer img {
-  position: absolute;
-  right: 0;
-  margin: 3vh 5vw 3vh 3vw;
-  width: auto;
-  height: 13vh;
-} */
+.social-buttons {
+  padding: 2.5px;
+  margin-right: 1vw;
+}
 
+.portfolio-link:hover{
+  background-color: #DFAC3B;
+}
+
+.portfolio-link a:hover{
+  color: white;
+}
+
+.github-link:hover{
+  background-color: #DFAC3B;
+}
+
+.github-link a:hover{
+  color: white;
+}
