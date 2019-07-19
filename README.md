@@ -2,7 +2,7 @@
 
 My Movie Database is a movie-info style application.
 
-This repository is all the code for the full application, that uses react on the front end to render in all the components need that are retrieved from the [TMDB API](https://www.themoviedb.org/en). To view the deployed version of this site please click this [link](https://t-moviesdb.netlify.com/).
+This repository is all the code for the full application, that uses react on the front end to render in all the components needed that are retrieved from the [TMDB API](https://www.themoviedb.org/en). To view the deployed version of this site please click this [link](https://t-moviesdb.netlify.com/).
 
 Within the application, you can view movies, tv show, actors, detailed information about given movies/series, and I will also integrate all media for a given genre and for a specific person.
 
